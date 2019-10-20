@@ -10,3 +10,6 @@ Run `nodemon server.js` for a dev server for backend.
 
 ## Deploy 
 Run `ng build --prod` for production build for frontend and then Navigate to `http://localhost:3001/`. 
+
+## Production Website
+http://ec2-18-223-121-141.us-east-2.compute.amazonaws.com:8080/
