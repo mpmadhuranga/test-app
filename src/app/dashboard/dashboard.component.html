@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Flicker Gallery</h1>
+    </div>
+    <div class="col-md-6 mb-5 ">
+        <form class="form-inline search">
+          <input class="form-control mr-sm-2" type="text" [ngModelOptions]="{standalone: true}" 
+          [(ngModel)]="name" placeholder="Search Images" aria-label="Search">
+          <button class="btn btn-primary search-btn" (click)="search()" type="button">Search</button>
+          <button class="btn btn-danger" (click)="reset()" type="reset">Reset</button>
+        </form>
+      </div>
+  </div>
+
+  <hr class="mt-2 mb-5">
+
+  <div class="row text-center text-lg-left" *ngIf="details && !loader">
+
+    <div class="col-lg-3 col-md-4 col-6"  *ngFor="let item of details">
+      <span class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src={{item.media.m}} alt="">
+          </span>
+    </div>
+  </div>
+  <div *ngIf="!details || loader">
+      <div class="d-flex justify-content-center">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+  </div>
+  <div *ngIf="details && details.length === 0 && !loader">
+      <div class="d-flex justify-content-center">
+      No images found, Please try again with another tag name.
+      </div>
+  </div>
+
+</div>
